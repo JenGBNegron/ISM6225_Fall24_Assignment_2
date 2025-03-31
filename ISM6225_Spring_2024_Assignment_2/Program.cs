@@ -62,8 +62,22 @@ namespace Assignment_2
         {
             try
             {
-                // Write your code here
-                return new List<int>(); // Placeholder
+                // ChatGPT helped me with the logic for this code. Copilot helped me with the syntax. -JNegron
+                HashSet<int> numSet = new HashSet<int>(nums);
+                List<int> missingNumbers = new List<int>();
+
+                int n = nums.Length;
+                for (int i = 1; i <= n; i++)
+                {
+                    if (!numSet.Contains(i))
+                    {
+                        // Copilot suggested the code below, I only updated the return statement. -JNegron
+                        // Add missing number to the list
+                        missingNumbers.Add(i);
+                    }
+                }
+                
+                return missingNumbers; // Placeholder
             }
             catch (Exception)
             {
@@ -75,9 +89,27 @@ namespace Assignment_2
         public static int[] SortArrayByParity(int[] nums)
         {
             try
-            {
+            {   
+                // Copilot suggested the code below, I only updated the return statement. -JNegron
+                // Create a new array to hold the sorted values
+                int[] sortedArray = new int[nums.Length];
+                int evenIndex = 0;
+                int oddIndex = nums.Length - 1;
+                foreach (int num in nums)
+                {
+                    if (num % 2 == 0) // Even number
+                    {
+                        sortedArray[evenIndex] = num;
+                        evenIndex++;
+                    }
+                    else // Odd number
+                    {
+                        sortedArray[oddIndex] = num;
+                        oddIndex--;
+                    }
+                }
                 // Write your code here
-                return new int[0]; // Placeholder
+                return sortedArray; // Placeholder
             }
             catch (Exception)
             {
@@ -90,7 +122,17 @@ namespace Assignment_2
         {
             try
             {
-                // Write your code here
+                // Copilot suggested the code below. -JNegron
+                HashSet<int> numSet = new HashSet<int>();
+                foreach (int num in nums)
+                {
+                    int complement = target - num;
+                    if (numSet.Contains(complement))
+                    {
+                        return new int[] { Array.IndexOf(nums, complement), Array.IndexOf(nums, num) };
+                    }
+                    numSet.Add(num);
+                }
                 return new int[0]; // Placeholder
             }
             catch (Exception)
@@ -118,6 +160,7 @@ namespace Assignment_2
         {
             try
             {
+
                 // Write your code here
                 return "101010"; // Placeholder
             }
@@ -146,8 +189,13 @@ namespace Assignment_2
         {
             try
             {
-                // Write your code here
-                return false; // Placeholder
+                //string constains a reverse function, so this is a simple way to check if a number is a palindrome. -JNegron
+                //logic was helped by ChatGPT -JNegron
+                string str = x.ToString();
+                char[] chars = str.ToCharArray();
+                Array.Reverse(chars);
+                string reversed = new string(chars);
+                return str == reversed;
             }
             catch (Exception)
             {
@@ -160,7 +208,12 @@ namespace Assignment_2
         {
             try
             {
-                // Write your code here
+               //wrote this without any help other than syntax. -JNegron
+                if (n <= 1)
+                {
+                    return n + (n-1) +(n-2); // Placeholder
+                }
+                // exception
                 return 0; // Placeholder
             }
             catch (Exception)

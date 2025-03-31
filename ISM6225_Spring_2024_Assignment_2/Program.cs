@@ -146,8 +146,8 @@ namespace Assignment_2
         {
             try
             {
-                // Write your code here
-                return 0; // Placeholder
+                Array.Sort(nums);
+                return nums[nums.Length-3]* nums[nums.Length-2]* nums[nums.Length-1]; 
             }
             catch (Exception)
             {
@@ -160,9 +160,15 @@ namespace Assignment_2
         {
             try
             {
-
+                // Copilot suggested the code below. I figured out the logic to confirm -JNegron 
+                List<int> binaryDigits = new List<int>();
+                while (decimalNumber > 0)
+                {
+                    binaryDigits.Add(decimalNumber % 2);
+                    decimalNumber /= 2;
+                }
                 // Write your code here
-                return "101010"; // Placeholder
+                return string.Join("",binaryDigits); // Placeholder
             }
             catch (Exception)
             {
@@ -175,7 +181,15 @@ namespace Assignment_2
         {
             try
             {
-                // Write your code here
+                int min = nums[0];
+                foreach (int num in nums)
+                {
+                    if (num < min) // Check for negative numbers
+                    {
+                        return num; // Placeholder
+                    }
+                    
+                }
                 return 0; // Placeholder
             }
             catch (Exception)
